@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+<f:view locale="#{facesContext.externalContext.requestLocale}">		
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+<h:form>
+<h1>Cliente</h1>
+	<h:inputText value="#{cliente.cliente.nome}" /><br/>
+	<h:inputText value="#{cliente.cliente.email}" /><br/>
+	<h:inputText value="#{cliente.cliente.telefone}" /><br/>
+	<h:inputText value="#{cliente.cliente.quantidade}" /><br/>
+	<h:commandButton value="salvar" action="#{cliente.incluirCliente}" />
+	<h:commandButton value="listar" action="#{cliente.listar}" />  
+</h:form>
+<h:form>
+<h1>Investidor</h1>
+	<h:inputText value="#{investidor.investidor.nome}" /><br/>
+	<h:inputText value="#{investidor.investidor.empresa}" /><br/>
+	<h:inputText value="#{investidor.investidor.email}" /><br/>
+	<h:inputText value="#{investidor.investidor.telefone}" /><br/>
+	<h:inputText value="#{investidor.investidor.proposta}" /><br/>
+	<h:commandButton value="salvar" action="#{investidor.incluirInvestidor}" />
+	<h:commandButton value="listar" action="#{investidor.listar}" />  
+</h:form>
+</h:body>
+</f:view>
+</html>
