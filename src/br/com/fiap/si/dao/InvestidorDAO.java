@@ -17,12 +17,8 @@ public class InvestidorDAO {
 		
 		Connection conn = ConnectionFactory.getConnection();
 		
-		String sql = "insert into investidor (id, nome, email, empresa, telefone, proposta, created_at) values(NULL, ?,?,?,?,?,?)";
-		java.util.Date dt = new java.util.Date();
-		java.text.SimpleDateFormat sdf = 
-		new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sql = "insert into investidor (id, nome, email, empresa, telefone, proposta, created_at) values(NULL, ?,?,?,?,?, now())";
 
-		String currentTime = sdf.format(dt);
 		
 		try{
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -31,7 +27,7 @@ public class InvestidorDAO {
 			stmt.setString(3, i.getEmail());
 			stmt.setString(4, i.getTelefone());
 			stmt.setFloat(5, i.getProposta());
-			stmt.setObject(6, currentTime);
+			
 			
 			stmt.executeUpdate();
 		}catch(SQLException ex){
