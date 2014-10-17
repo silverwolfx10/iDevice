@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+<f:view locale="#{facesContext.externalContext.requestLocale}">		
+<head>
+<link rel="stylesheet" type="text/css" href="/RoboCombat/bootstrap/css/bootstrap.css"/> 
+<script src="/RoboCombat/bootstrap/js/bootstrap.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Login</title>
+</head>
+<h:body>
+<h:form>
+<div class="panel panel-primary" style="margin: 0 auto;width:400px;margin-top:100px">
+	  <div class="panel-heading">Login Administrativo</div>
+	  <div class="panel-body">
+	  	<span  style="color:red"><b>#{admin.erro}</b></span><br/>
+		#{msg.labelLogin} <h:inputText value="#{admin.login}" class="form-control"/><br/>
+		#{msg.labelPassword} <h:inputSecret value="#{admin.senha}" class="form-control"/><br/>
+		<h:commandButton value="#{msg.btnLogar}" action="#{admin.autenticar}" style="float:right" class="btn btn-success"/>
+	  </div>
+	</div>
+</h:form>
+</h:body>
+</f:view>
+</html>
