@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.com.fiap.si.bean.Investidor;
@@ -18,11 +17,14 @@ public class InvestidorManagedBean {
 	
 	private Integer pk;
 	
+	
+	
 	public void setPk(Integer pk) {
 		this.pk = pk;
 	}
 
 	public List<Investidor> getlistaInvestidores() {
+		this.listar();
 		return listaInvestidores;
 	}
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/RoboCombat/bootstrap/css/bootstrap.css"/> 
+<script src="/RoboCombat/scripts/jquery.min.js"></script>
+<script src="/RoboCombat/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+<ul class="nav nav-tabs">
+   <li><a href="/RoboCombat/admin/clientes.jsf">Clientes</a></li>
+   <li class="active"><a href="/RoboCombat/admin/investidores.jsf">Investidores</a></li>
+   <li ><a href="/RoboCombat/admin/resumo.jsf">Resumo</a></li>
+   <li class="pull-right">
+   		<h:form>
+    		<h:commandLink value="Logout" action="#{admin.logout()}"/>
+    	</h:form>
+	
+	</li>
+</ul>
+<table class="table table-striped">
+	<thead>
+		<th>Nome</th>
+		<th>Empresa</th>
+		<th>Email</th>
+		<th>Telefone</th>
+		<th>Proposta</th>
+		<th>Cadastro</th>
+	</thead>
+	<tbody>
+	<ui:repeat var="c" value="#{investidor.listaInvestidores}">
+		<tr>
+			<td>#{c.nome}</td>
+			<td>#{c.empresa}</td>
+			<td>#{c.email}</td>
+			<td>#{c.telefone}</td>
+			<td>#{c.proposta}</td>
+			<td>
+			<h:outputText value="#{c.createdAt}" >
+              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+ 			</h:outputText>
+			</td>
+		</tr>
+		</ui:repeat>
+	</tbody>
+	
+	
+</table>
+
+<br/>
+<br/>
+</body>
+</html>

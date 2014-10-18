@@ -1,10 +1,14 @@
 package br.com.fiap.si.bean;
 
+import java.util.Date;
+
+
 public class Cliente {
-	private String nome;
-	private String email;
-	private String telefone;
+	private String 	nome;
+	private String 	email;
+	private String 	telefone;
 	private Integer quantidade;
+	private Date 	created_at;
 	
 	public String getNome() {
 		return nome;
@@ -30,6 +34,13 @@ public class Cliente {
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
+	public Date getCreatedAt() {
+		return created_at;
+	}
+	public void setCreatedAt(Date created_at) {
+		this.created_at = created_at;
+	}
+	
 	
 	
 }

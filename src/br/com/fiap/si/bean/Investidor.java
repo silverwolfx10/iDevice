@@ -1,11 +1,14 @@
 package br.com.fiap.si.bean;
 
+import java.util.Date;
+
 public class Investidor {
-	private String nome;
-	private String empresa;
-	private String email;
-	private String telefone;
-	private Float proposta;
+	private String 	nome;
+	private String 	empresa;
+	private String 	email;
+	private String 	telefone;
+	private Float 	proposta;
+	private Date 	created_at;
 	
 	public String getNome() {
 		return nome;
@@ -36,5 +39,11 @@ public class Investidor {
 	}
 	public void setProposta(Float proposta) {
 		this.proposta = proposta;
+	}
+	public Date getCreatedAt() {
+		return created_at;
+	}
+	public void setCreatedAt(Date created_at) {
+		this.created_at = created_at;
 	}
 }

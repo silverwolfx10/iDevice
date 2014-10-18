@@ -74,11 +74,52 @@ public class InvestidorDAO {
 			i.setEmail(rs.getString("email"));
 			i.setTelefone(rs.getString("telefone"));
 			i.setProposta(rs.getFloat("proposta"));
+			i.setCreatedAt(rs.getDate("created_at"));
 			investidores.add(i);
 		}
 		
 		conn.close();
 		
 		return investidores;
+	}
+	
+	public Integer getQuantidade()  throws SQLException{
+		
+		Connection conn = ConnectionFactory.getConnection();
+		
+		String sql = "select count(id) as qtd from investidor";
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		
+		Integer qtd = 0;
+		
+		while(rs.next()){
+			qtd = rs.getInt("qtd");
+		}
+		
+		conn.close();
+		
+		return qtd;
+	}
+	
+public Float getMediaPropostas()  throws SQLException{
+		
+		Connection conn = ConnectionFactory.getConnection();
+		
+		String sql = "select SUM(proposta)/count(id) as media from investidor";
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		
+		Float media = (float) 0;
+		
+		while(rs.next()){
+			media = rs.getFloat("media");
+		}
+		
+		conn.close();
+		
+		return media;
 	}
 }

@@ -68,11 +68,52 @@ public class ClienteDAO {
 			c.setEmail(rs.getString("email"));
 			c.setTelefone(rs.getString("telefone"));
 			c.setQuantidade(rs.getInt("quantidade"));
+			c.setCreatedAt(rs.getDate("created_at"));
 			clientes.add(c);
 		}
 		
 		conn.close();
 		
 		return clientes;
+	}
+	
+	public Integer getQuantidade()  throws SQLException{
+		
+		Connection conn = ConnectionFactory.getConnection();
+		
+		String sql = "select count(id) as qtd from cliente";
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		
+		Integer qtd = 0;
+		
+		while(rs.next()){
+			qtd = rs.getInt("qtd");
+		}
+		
+		conn.close();
+		
+		return qtd;
+	}
+	
+public Integer getQuantidadeItens()  throws SQLException{
+		
+		Connection conn = ConnectionFactory.getConnection();
+		
+		String sql = "select SUM(quantidade) as total from cliente";
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		
+		Integer total = 0;
+		
+		while(rs.next()){
+			total = rs.getInt("total");
+		}
+		
+		conn.close();
+		
+		return total;
 	}
 }

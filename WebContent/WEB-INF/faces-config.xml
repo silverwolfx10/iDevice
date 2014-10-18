@@ -4,6 +4,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
+    
+
+   
 	<managed-bean>
 		<managed-bean-name>cliente</managed-bean-name>
 		<managed-bean-class>br.com.fiap.si.managedbean.ClienteManagedBean</managed-bean-class>
@@ -14,4 +17,20 @@
 		<managed-bean-class>br.com.fiap.si.managedbean.InvestidorManagedBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>admin</managed-bean-name>
+		<managed-bean-class>br.com.fiap.si.managedbean.AdminManagedBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>resumo</managed-bean-name>
+		<managed-bean-class>br.com.fiap.si.managedbean.ResumoManagedBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<application>
+		<resource-bundle>
+			<base-name>br.com.fiap.si.mensagem.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+	</application>
 </faces-config>
