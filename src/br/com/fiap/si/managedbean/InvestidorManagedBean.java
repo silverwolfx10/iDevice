@@ -21,7 +21,12 @@ public class InvestidorManagedBean extends Investidor{
 	private Integer pk;
 	private String dhCadastroDe ="";
 	private String dhCadastroAte ="";
+	private String mensagem = "";
 
+	public String getmensagem() {
+		return mensagem;
+	}
+	
 	public String getDhCadastroDe() {
 		return dhCadastroDe;
 	}
@@ -55,6 +60,8 @@ public class InvestidorManagedBean extends Investidor{
 		this.investidor = Investidor;
 	}
 
+	
+	/*
 	public String incluirInvestidor(){
 		
 		String resultado = "";
@@ -66,12 +73,36 @@ public class InvestidorManagedBean extends Investidor{
 			
 			resultado = "sucesso";
 			
+			this.teste = "atualizado";
+			
 		}catch(SQLException e){
 			System.out.print(e.getMessage());
 			resultado = "erro";
 		}
 		
 		return resultado;
+	}
+	*/
+	
+	public void incluirInvestidor(){
+		
+		String resultado = "";
+		
+		InvestidorDAO dao = new InvestidorDAO();
+		
+		try{
+			dao.incluir(investidor);
+			
+			resultado = "sucesso";
+			
+			this.mensagem = "Sua proposta foi enviada com sucesso !";
+			
+		}catch(SQLException e){
+			System.out.print(e.getMessage());
+			resultado = "erro";
+		}
+		
+		//return resultado;
 	}
 	
 	public String listar(){
@@ -115,7 +146,7 @@ public class InvestidorManagedBean extends Investidor{
 		FacesContext context = FacesContext.getCurrentInstance();
 		
 		if((!dhCadastroDe.equals("") && dhCadastroAte.equals("")) || (!dhCadastroAte.equals("") && dhCadastroDe.equals("")) ){
-			context.addMessage(null,new FacesMessage("Para realizar uma busca por periodo, é necessario preencher as duas datas!"));
+			context.addMessage(null,new FacesMessage("Para realizar uma busca por periodo, ï¿½ necessario preencher as duas datas!"));
 			return null;
 		}else if(!dhCadastroDe.equals("") && !dhCadastroAte.equals("")){
 			Date de = new Date(dhCadastroDe);
@@ -124,7 +155,7 @@ public class InvestidorManagedBean extends Investidor{
 			if(de.getTime() <= ate.getTime())
 				this.dhCadastroDe = dhCadastroDe;
 			else{
-				context.addMessage(null,new FacesMessage("A data do campo 'Até:' não pode ser menor que a data do campo 'De:'"));
+				context.addMessage(null,new FacesMessage("A data do campo 'Atï¿½:' nï¿½o pode ser menor que a data do campo 'De:'"));
 				return null;
 			}
 		}

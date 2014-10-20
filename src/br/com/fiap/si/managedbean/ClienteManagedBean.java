@@ -21,6 +21,11 @@ public class ClienteManagedBean extends Cliente{
 	private Integer pk;
 	private String dhCadastroDe ="";
 	private String dhCadastroAte ="";
+	private String mensagem = "";
+
+	public String getmensagem() {
+		return mensagem;
+	}
 
 	
 
@@ -60,22 +65,22 @@ public class ClienteManagedBean extends Cliente{
 		this.cliente = cliente;
 	}
 
-	public String incluirCliente(){
+	public void incluirCliente(){
 		
-		String resultado = "sucesso";
+//		String resultado = "sucesso";
 		
 		ClienteDAO dao = new ClienteDAO();
 		
 		try{
 			dao.incluir(cliente);
-			
-			resultado = "index.jsf#adquirir";
+			this.mensagem = "Pedido Efetuado com Sucesso!";
+//			resultado = "index.jsf#adquirir";
 			
 		}catch(SQLException e){
-			resultado = "erro";
+//			resultado = "erro";
 		}
 		
-		return null;
+//		return null;
 	}
 	
 	public String listar(){
@@ -118,7 +123,7 @@ public class ClienteManagedBean extends Cliente{
 		FacesContext context = FacesContext.getCurrentInstance();
 		
 		if((!dhCadastroDe.equals("") && dhCadastroAte.equals("")) || (!dhCadastroAte.equals("") && dhCadastroDe.equals("")) ){
-			context.addMessage(null,new FacesMessage("Para realizar uma busca por periodo, é necessario preencher as duas datas!"));
+			context.addMessage(null,new FacesMessage("Para realizar uma busca por periodo, ï¿½ necessario preencher as duas datas!"));
 			return null;
 		}else if(!dhCadastroDe.equals("") && !dhCadastroAte.equals("")){
 			Date de = new Date(dhCadastroDe);
@@ -127,7 +132,7 @@ public class ClienteManagedBean extends Cliente{
 			if(de.getTime() < ate.getTime())
 				this.dhCadastroDe = dhCadastroDe;
 			else{
-				context.addMessage(null,new FacesMessage("A data do campo 'Até:' não pode ser menor que a data do campo 'De:'"));
+				context.addMessage(null,new FacesMessage("A data do campo 'Atï¿½:' nï¿½o pode ser menor que a data do campo 'De:'"));
 				return null;
 			}
 		}
