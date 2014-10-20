@@ -3,12 +3,12 @@ package br.com.fiap.si.bean;
 import java.util.Date;
 
 public class Investidor {
-	private String 	nome;
-	private String 	empresa;
-	private String 	email;
-	private String 	telefone;
-	private Float 	proposta;
-	private Date 	created_at;
+	protected String 	nome;
+	protected String 	empresa;
+	protected String 	email;
+	protected String 	telefone;
+	protected Float 	proposta;
+	protected Date 	created_at;
 	
 	public String getNome() {
 		return nome;

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Bem Vindo!! -- iDevice --</title>
+<link rel="stylesheet" type="text/css" href="/RoboCombat/bootstrap/css/bootstrap.css"/> 
+<script src="/RoboCombat/bootstrap/js/bootstrap.js"></script>
+
+<link rel="stylesheet" href="css/style.css" media="screen" />
+
+</head>
+<body>
+<div id="site"> 
+<div id = "header">
+<div id = "logo"></div>
+<div id = "telefone"></div>
+
+<div id = "menu">
+<ul>
+<a href="#ideia"><li>A Idéia</li></a>
+<a href="#comoFunciona"><li>Como funciona?</li></a>
+<a href="#motivacao"><li>A Motivação</li></a>
+<a href="#adquirir"><li>Deseja Adquirir?</li></a>
+<a href="#investir"><li>Deseja investir?</li></a>
+
+</ul>
+</div>
+<!-- Fim div menu-->
+<div id="destaque">
+  <div id ="conteudo">
+  <br/>
+  <br/>
+  </div>
+  <div align="center">
+   
+  </div>
+</div>
+</div><!--fim do div header-->
+<div id="introducao" class="topico">
+ 	<a name="ideia"/>
+ 	<div id="titulo">
+ 		A Idéia
+ 	</div>
+    <p>
+    	A automação residencial está cada dia facilitando mais a vida dos moradores. Com a chegada de novas tecnologias, automação wireless, já é possível levar 
+    	esta facilidade e conforto para uma gama muito maior de pessoas evitando quebradeiras para adequar a casa a automação.
+    	Temos a nosso alcance uma gama de possibilidades práticas e econômicas que utilizam a automação, desde a básica até a mais abrangente, em sistemas 
+    	de integração para diversos ambientes. O resultado é um ambiente prático, confortável, agradável, mais bonito, valorizado e seguro, de acordo com o 
+		interesse do usuário. Sendo assim propomos a criação do Trampolim Celsius.
+	</p>
+    <img src="images/phone-car-01.jpg" style="float:right;margin-top: 10px;margin-right:35px;width:55%;height:400px" />
+</div>
+
+ <div id="comoFunciona" class="topico">
+ 	<a name="comoFunciona"/>
+ 	<div id="titulo">
+ 		Como funciona?
+ 	</div>
+    <p style="width:96%;">
+	 	<img src="images/cell-arduino.jpg" style="float:left;margin-right:20px;width:550px;height:400" />
+	    <b> O Trapolim Celsius</b> é um aplicativo de automação que pretende controlar a temperatura em ambientes domésticos e empresariais á distância. Assim os usuários destes aplicativo 
+	    podem a alterar a temperatura dos locais a que estão se dirigindo de uma forma remota e simples. Por exemplo em um dia ensolarado podemos acionar o ar condicionado do meio do caminho, e assim evitaremos
+	    de chegarmos em uma sala totalmente abafada para trabalhar.
+	    <br/><br/>
+	    Tecnicamente falando, o celular irá se conecta a uma placa arduino, que esta conectada a uma dispositivo responsável por verificar a temperatura e a humidade do ar, e assim passata essas informações
+	    ao usuario do celular. Agora o usuario tem informações mais exatas do ambiente, e com apenas um "clickar de botão" o celular ira acionar o arduino que esta ligado ao ar condicionado e fazer 
+	    as alterações solicitadas pelo usuário.
+    </p>
+    
+</div>
+<div id="motivacao" class="topico">
+ 	<a name="motivacao"/>
+ 	<div id="titulo">
+ 		A Motivação
+ 	</div>
+    <p>
+    	Com o crescente aumento da temperatura, baixa qualidade do ar aliado ao tempo seco a criação do Trampolim Celsius aparece como uma mecanismo tecnológico afim de minimizar
+    	impactos causados pela temperatura em ambientes domésticos e empresariais, possibilitando à adequação de acordo com o interesse do usuário. A crescente demanda de automação 
+    	residencial facilita a inserção do mecanismo no mercado pois amplia a qualidade dos diversos interesses nos consumidores desse segmento, pois a ideia tem apelo em benefícios 
+    	como: praticidade, conforto, comodidade e economia.
+	</p>
+    <img src="images/cidade_sol.jpg" style="float:right;margin-top: 10px;margin-right:35px;width:55%;height:400px" />
+</div>
+ <div id="contatoCliente" class="topico">
+ 	<a name="adquirir"/>
+ 	<div id="titulo">
+ 		Deseja adquirir o nosso produto?
+ 	</div>
+ 	
+ 	<div class="formulario">
+ 		 <h5>
+	    	Espaço destinado a todos aqueles que gostaram da idéia, não veem a hora de adquirir o noso produto! 
+	    </h5>
+	    <br/>
+	    <h:form>
+			Nome: <h:inputText value="#{cliente.cliente.nome}" class="form-control" /><br/>
+			E-mail: <h:inputText value="#{cliente.cliente.email}" class="form-control" /><br/>
+			<div style="width: 50%;float:left;padding-right:5px;">
+				Telefone: <h:inputText value="#{cliente.cliente.telefone}" class="form-control" /><br/>
+			</div>
+			<div style="width: 50%;float:left;">
+				Quantidade de Itens: <h:inputText value="#{cliente.cliente.quantidade}" class="form-control" /><br/>
+			</div>
+			 
+			<h:commandButton value="Enviar" action="#{cliente.incluirCliente}" class="btn btn-primary" style="width:100%;height:45px;margin-top:20px;"/>
+		</h:form>
+ 	</div>
+   
+</div>
+
+ <div id="contatoInvestidor" class="topico" style="height:650px">
+ 	<a name="investir"/>
+	 	<div id="titulo">
+	 		Deseja investir?
+	 	</div>
+	    <div class="formulario">
+	    	<h5>E para você que gostou tanto do 'Trapolim Celsius' que deseja investir nessa ideia inovadora, o formulário abaixo foi destinado a você!</h5>
+	    	<h:form>
+				Nome:<h:inputText value="#{investidor.investidor.nome}" class="form-control"/><br/>
+				Empresa:<h:inputText value="#{investidor.investidor.empresa}" class="form-control"/><br/>
+				<div style="width: 50%;float:left;padding-right:5px;">
+					E-mail:<h:inputText value="#{investidor.investidor.email}" class="form-control"/><br/>
+				</div>
+				<div style="width: 50%;float:left;">
+					Telefone:<h:inputText value="#{investidor.investidor.telefone}" class="form-control"/><br/>
+				</div>
+				Proposta:<h:inputTextarea rows="7" value="#{investidor.investidor.proposta}" class="form-control"/><br/>
+				<h:commandButton value="Enviar" action="#{investidor.incluirInvestidor}" class="btn btn-primary" style="width:100%;height:45px;margin-top:20px;"/>
+			</h:form>
+	    </div>
+</div>
+
+<div id="rodape2">
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -4,11 +4,11 @@ import java.util.Date;
 
 
 public class Cliente {
-	private String 	nome;
-	private String 	email;
-	private String 	telefone;
-	private Integer quantidade;
-	private Date 	created_at;
+	protected String nome = "";
+	protected String email;
+	protected String telefone;
+	protected Integer quantidade;
+	protected Date 	created_at;
 	
 	public String getNome() {
 		return nome;

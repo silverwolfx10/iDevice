@@ -3,7 +3,9 @@ package br.com.fiap.si.managedbean;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.annotation.ManagedBean;
+
+
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.com.fiap.si.bean.Investidor;
