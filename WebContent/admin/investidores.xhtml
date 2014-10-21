@@ -6,7 +6,7 @@
 		xmlns:f="http://java.sun.com/jsf/core">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+<title>Admin</title>
 <link rel="stylesheet" type="text/css" href="/RoboCombat/bootstrap/css/bootstrap.css"/> 
 <script src="/RoboCombat/scripts/jquery.min.js"></script>
 <script src="/RoboCombat/bootstrap/js/bootstrap.js"></script>
@@ -75,10 +75,10 @@ $(function() {
 			<td>#{c.empresa}</td>
 			<td>#{c.email}</td>
 			<td>#{c.telefone}</td>
-			<td>#{c.proposta}</td>
+			<td>R$#{c.proposta}</td>
 			<td>
 			<h:outputText value="#{c.createdAt}" >
-              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+              <f:convertDateTime pattern="dd/MM/yyyy" />
  			</h:outputText>
 			</td>
 		</tr>

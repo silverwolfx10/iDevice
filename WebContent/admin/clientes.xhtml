@@ -6,7 +6,7 @@
 		xmlns:f="http://java.sun.com/jsf/core">
 <head>
 
-<title>Insert title here</title>
+<title>Admin</title>
 <link rel="stylesheet" type="text/css" href="/RoboCombat/bootstrap/css/bootstrap.css"/> 
 <script src="/RoboCombat/scripts/jquery.min.js"></script>
 <script src="/RoboCombat/bootstrap/js/bootstrap.js"></script>
@@ -24,7 +24,10 @@ $(function() {
     $( "#calendarioAte" ).datepicker({
     	dateFormat: 'dd/mm/yy'
     }).val();
-    
+    $("#campoTelefone").mask("(99) 9999-9999");
+});
+jQuery(function($){
+     $("#campoTelefone").mask("(99) 9999-9999");
 });
 </script>
 </head>
@@ -73,15 +76,16 @@ $(function() {
 		<tr>
 			<td>#{c.nome}</td>
 			<td>#{c.email}</td>
-			<td>#{c.telefone}</td>
+			<td><h:outputText id="campoTelefone" StyleClass="campoTelefone" value="#{c.telefone}"/></td>
 			<td>#{c.quantidade}</td>
 			<td>
 			<h:outputText value="#{c.createdAt}" >
-              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+              <f:convertDateTime pattern="dd/MM/yyyy" />
  			</h:outputText>
 			</td>
 		</tr>
 		</ui:repeat>
+
 	</tbody>
 </table>
 <br/>

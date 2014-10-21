@@ -107,8 +107,8 @@
 			</h:inputText><br/>
 			<div style="width: 50%;float:left;padding-right:5px;">
 				Telefone:&nbsp;<h:message for="telefone" style="color:red;"></h:message> 
-				<h:inputText id="telefone" value="#{cliente.cliente.telefone}" class="form-control" validatorMessage="*O Telefone deve conter 8 numeros." converterMessage="*No campo telefone só é permitido números.">
-					<f:validateLength minimum="8" maximum="8"/>
+				<h:inputText id="telefone" value="#{cliente.cliente.telefone}" class="form-control" validatorMessage="*O Telefone deve conter DD e no mínimo 10 numeros." converterMessage="*No campo telefone só é permitido números.">
+					<f:validateLength minimum="10" maximum="11"/>
 					<f:convertNumber integerOnly="true" /> 
 				</h:inputText><br/>
 			</div>
@@ -153,8 +153,8 @@
 				</div>
 				<div style="width: 50%;float:left;">
 					Telefone:&nbsp;<h:message for="telefone" style="color:red;"></h:message> 
-					<h:inputText id="telefone" value="#{investidor.investidor.telefone}" class="form-control" validatorMessage="*O Telefone deve conter 8 numeros." converterMessage="*No campo telefone só é permitido números.">
-						<f:validateLength minimum="8" maximum="8"/>
+					<h:inputText id="telefone" value="#{investidor.investidor.telefone}" class="form-control" validatorMessage="*O Telefone deve conter DD e no mínimo 10 numeros." converterMessage="*No campo telefone só é permitido números.">
+						<f:validateLength minimum="10" maximum="11"/>
 						<f:convertNumber integerOnly="true" />
 					</h:inputText><br/>
 				</div>
