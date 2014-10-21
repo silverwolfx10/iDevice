@@ -96,28 +96,43 @@
  		 <h5>
 	    	Espaço destinado a todos aqueles que gostaram da idéia, não veem a hora de adquirir o noso produto! 
 	    </h5>
-	    <br/>
-	    <h:form>
-			Nome: <h:inputText value="#{cliente.cliente.nome}" class="form-control" /><br/>
-			E-mail: <h:inputText value="#{cliente.cliente.email}" class="form-control" /><br/>
+	    <h:form id="formCliente">
+
+			Nome:&nbsp;<h:message for="nome" style="color:red;"></h:message> 
+			<h:inputText id="nome" value="#{cliente.cliente.nome}" class="form-control" required="true" requiredMessage="*Campo nome é obrigatório!"/><br/>
+			
+			E-mail:&nbsp;<h:message for="email" style="color:red;"></h:message> 
+			<h:inputText id="email" value="#{cliente.cliente.email}" class="form-control" validatorMessage="*E-mail incorreto.">
+				 <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+			</h:inputText><br/>
 			<div style="width: 50%;float:left;padding-right:5px;">
-				Telefone: <h:inputText value="#{cliente.cliente.telefone}" class="form-control" /><br/>
+				Telefone:&nbsp;<h:message for="telefone" style="color:red;"></h:message> 
+				<h:inputText id="telefone" value="#{cliente.cliente.telefone}" class="form-control" validatorMessage="*O Telefone deve conter 8 numeros." converterMessage="*No campo telefone só é permitido números.">
+					<f:validateLength minimum="8" maximum="8"/>
+					<f:convertNumber integerOnly="true" /> 
+				</h:inputText><br/>
 			</div>
 			<div style="width: 50%;float:left;">
-				Quantidade de Itens: <h:inputText value="#{cliente.cliente.quantidade}" class="form-control" /><br/>
+				Quantidade de Itens:&nbsp;<h:message for="quantidade" style="color:red;"></h:message> 
+				<h:inputText id="quantidade" value="#{cliente.cliente.quantidade}" class="form-control" required="true" validatorMessage="*O campo quantidade deve conter no maximo 3 digitos! E o valor deve ser maior que zero." converterMessage="*No campo quantidade só é permitido números." requiredMessage="*Campo quantidade é obrigatório!">
+					<f:validateLength minimum="1" maximum="3"/>
+					<f:convertNumber integerOnly="true" /> 
+					<f:validateLongRange minimum="1"/>
+				</h:inputText><br/>
 			</div>
+			
+			<h:commandButton value="Enviar" class="btn btn-primary" style="width:100%;height:45px;margin-top:20px;">
+				<f:ajax event="click" execute="@form" render="formCliente" listener="#{cliente.incluirCliente}" /> 
+			</h:commandButton>
 			
 			<h1><h:outputText id="cmensagem" value="#{cliente.mensagem}"></h:outputText></h1>
 			
-			<p:commandButton value="Enviar" actionListener="#{cliente.incluirCliente}" imediated="false" update="cmensagem" class="btn btn-primary" style="width:100%;height:45px;margin-top:20px;">
-			</p:commandButton>
-				
 		</h:form>
  	</div>
    
 </div>
 
- <div id="contatoInvestidor" class="topico" style="height:650px">
+ <div id="contatoInvestidor" class="topico" style="height:550px">
  	<a name="investir"/>
 	 	<div id="titulo">
 	 		Deseja investir?
@@ -125,22 +140,37 @@
 	    <div class="formulario">
 	    	<h5>E para você que gostou tanto do 'Trapolim Celsius' que deseja investir nessa ideia inovadora, o formulário abaixo foi destinado a você!</h5>
 	    	<h:form id="form1">
-				Nome:<h:inputText value="#{investidor.investidor.nome}" class="form-control"/><br/>
+				Nome:&nbsp;<h:message for="nome" style="color:red;"></h:message> 
+				<h:inputText id="nome" value="#{investidor.investidor.nome}" class="form-control" required="true" requiredMessage="*Campo nome é obrigatório!"/><br/>
+				
+				
 				Empresa:<h:inputText value="#{investidor.investidor.empresa}" class="form-control"/><br/>
 				<div style="width: 50%;float:left;padding-right:5px;">
-					E-mail:<h:inputText value="#{investidor.investidor.email}" class="form-control"/><br/>
+					E-mail:&nbsp;<h:message for="email" style="color:red;"></h:message> 
+					<h:inputText id="email" value="#{investidor.investidor.email}" class="form-control" validatorMessage="*E-mail incorreto.">
+						 <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+					</h:inputText><br/>
 				</div>
 				<div style="width: 50%;float:left;">
-					Telefone:<h:inputText value="#{investidor.investidor.telefone}" class="form-control"/><br/>
+					Telefone:&nbsp;<h:message for="telefone" style="color:red;"></h:message> 
+					<h:inputText id="telefone" value="#{investidor.investidor.telefone}" class="form-control" validatorMessage="*O Telefone deve conter 8 numeros." converterMessage="*No campo telefone só é permitido números.">
+						<f:validateLength minimum="8" maximum="8"/>
+						<f:convertNumber integerOnly="true" />
+					</h:inputText><br/>
 				</div>
-				Proposta em r$:<h:inputText  value="#{investidor.investidor.proposta}" class="form-control"/><br/>
+				Proposta em R$:&nbsp;<h:message for="proposta" style="color:red;"></h:message> 
+				<h:inputText id="proposta" value="#{investidor.investidor.proposta}" class="form-control" required="true" validatorMessage="*O valor deve ser maior que zero." converterMessage="*No campo proposta só é permitido números." requiredMessage="*Campo proposta é obrigatório!">
+					<f:validateLength minimum="1"/>
+					<f:convertNumber minFractionDigits="2" /> 
+					<f:validateLongRange minimum="1"/>
+				</h:inputText><br/>
+				
 			
+				<h:commandButton value="Enviar" class="btn btn-primary" style="width:100%;height:45px;margin-top:20px;">
+					<f:ajax event="click" execute="@form" render="form1" listener="#{investidor.incluirInvestidor}" /> 
+				</h:commandButton>
+				
 				<h1><h:outputText id="imensagem" value="#{investidor.mensagem}"></h:outputText></h1>
-			
-				<p:commandButton value="Enviar" actionListener="#{investidor.incluirInvestidor}" imediated="false" update="imensagem" class="btn btn-primary" style="width:100%;height:45px;margin-top:20px;">
-				</p:commandButton>
-				
-				
 			</h:form>
 			
 	    </div>
